@@ -13,7 +13,7 @@ class Component01 extends Component {
         super(props)
         this.state = {
             inputValue: 'Service Add',
-            list: []
+            list: ['Service 1', 'Service 2']
         }
     }
 
@@ -22,14 +22,28 @@ class Component01 extends Component {
             <div>
                 <div>
                     <input value={this.state.inputValue} onChange={this.inputChange.bind(this)/**事件绑定this */} />
-                    <button> Add Service </button>
+                    <button onClick={this.addService.bind(this)}> Add Service </button>
                 </div>
                 <ul>
-                    <li>Service 1</li>
-                    <li>Service 2</li>
+                    {
+                        this.state.list.map((item, index) => {
+                            return <li>{item} - {index}</li>
+                        })
+                    }
                 </ul>
             </div>
         )
+    }
+
+    /**
+     * 增加方法
+     * @param {*} inputValue 
+     */
+    addService(inputValue) {
+        this.setState({
+            /** ...扩展运算符，相当于已有元素复制 */
+            list: [...this.state.list, this.state.inputValue]
+        })
     }
 
     /**
