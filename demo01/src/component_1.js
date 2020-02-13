@@ -21,6 +21,7 @@ class Component01 extends Component {
         return (
             <div>
                 <div>
+                    {/*增加注释 */}
                     <input value={this.state.inputValue} onChange={this.inputChange.bind(this)/**事件绑定this */} />
                     <button onClick={this.addService.bind(this)}> Add Service </button>
                 </div>
