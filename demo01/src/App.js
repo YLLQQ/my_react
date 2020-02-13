@@ -13,7 +13,6 @@ class App extends Component {
              * JSX语法 javascript xml
              */
             <ul className="my-list">
-                // 支持javascript代码
                 <li>{false ? 'List 1' : 'List one'}</li>
                 <li>List 2</li>
             </ul>
