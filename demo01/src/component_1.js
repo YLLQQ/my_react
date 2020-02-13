@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './style.css';
 
 /**
  * 组件外层包裹原则
@@ -22,7 +23,7 @@ class Component01 extends Component {
             <div>
                 <div>
                     {/*增加注释 */}
-                    <input value={this.state.inputValue} onChange={this.inputChange.bind(this)/**事件绑定this */} />
+                    <input className="inputBorder" value={this.state.inputValue} onChange={this.inputChange.bind(this)/**事件绑定this */} />
                     <button onClick={this.addService.bind(this)}> Add Service </button>
                 </div>
                 <ul>
