@@ -9,7 +9,14 @@ import React, { Component } from 'react';
 class App extends Component {
     render() {
         return (
-            <div>Hello World!</div>
+            /**
+             * JSX语法 javascript xml
+             */
+            <ul className="my-list">
+                // 支持javascript代码
+                <li>{false ? 'List 1' : 'List one'}</li>
+                <li>List 2</li>
+            </ul>
         )
     }
 }
