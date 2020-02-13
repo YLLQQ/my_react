@@ -27,7 +27,7 @@ class Component01 extends Component {
                 <ul>
                     {
                         this.state.list.map((item, index) => {
-                            return <li>{item} - {index}</li>
+                            return <li key={index + item}>{item} - {index}</li>
                         })
                     }
                 </ul>
@@ -42,7 +42,8 @@ class Component01 extends Component {
     addService(inputValue) {
         this.setState({
             /** ...扩展运算符，相当于已有元素复制 */
-            list: [...this.state.list, this.state.inputValue]
+            list: [...this.state.list, this.state.inputValue],
+            inputValue:''
         })
     }
 
