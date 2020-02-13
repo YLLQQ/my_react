@@ -27,12 +27,35 @@ class Component01 extends Component {
                 <ul>
                     {
                         this.state.list.map((item, index) => {
-                            return <li key={index + item}>{item} - {index}</li>
+                            return (
+                                <li key={index + item} onClick={this.deleteItem.bind(this, index)}>
+                                    {item} - {index}
+                                </li>)
                         })
                     }
                 </ul>
             </div>
         )
+    }
+
+    /**
+     * 删除节点
+     * @param {*}} index 
+     */
+    deleteItem(index) {
+        console.log('delete index is ' + index)
+
+        /**
+         * React 禁止直接对state中数据进行直接操作，避免性能漏洞。
+         * 正常情况下，使用局部变量进行更新后，将局部变量重新赋值。
+         */
+        let list = this.state.list
+
+        list.splice(index, 1)
+
+        this.setState({
+            list: list
+        })
     }
 
     /**
@@ -43,7 +66,7 @@ class Component01 extends Component {
         this.setState({
             /** ...扩展运算符，相当于已有元素复制 */
             list: [...this.state.list, this.state.inputValue],
-            inputValue:''
+            inputValue: ''
         })
     }
 
