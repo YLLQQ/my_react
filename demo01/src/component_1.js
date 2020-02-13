@@ -13,6 +13,7 @@ class Component01 extends Component {
      */
     constructor(props) {
         super(props)
+        this.deleteItem = this.deleteItem.bind(this)
         this.state = {
             inputValue: 'Service Add',
             list: ['Service 1', 'Service 2']
@@ -31,7 +32,12 @@ class Component01 extends Component {
                     {
                         this.state.list.map((item, index) => {
                             return (
-                                <ComponentItem content={item}/>
+                                <ComponentItem
+                                    content={item}
+                                    key={item + index}
+                                    index={index}
+                                    deleteItem={this.deleteItem}
+                                />
                             )
                         })
                     }
