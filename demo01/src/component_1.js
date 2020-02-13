@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import ComponentItem from './ComponentItem';
 
 /**
  * 组件外层包裹原则
@@ -30,9 +31,8 @@ class Component01 extends Component {
                     {
                         this.state.list.map((item, index) => {
                             return (
-                                <li key={index + item} onClick={this.deleteItem.bind(this, index)}>
-                                    {item} - {index}
-                                </li>)
+                                <ComponentItem />
+                            )
                         })
                     }
                 </ul>
