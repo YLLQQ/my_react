@@ -31,7 +31,7 @@ class Component01 extends Component {
                     {
                         this.state.list.map((item, index) => {
                             return (
-                                <ComponentItem />
+                                <ComponentItem content={item}/>
                             )
                         })
                     }

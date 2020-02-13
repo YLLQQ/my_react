@@ -4,7 +4,7 @@ class ComponentItem extends Component {
     render() {
         return (
             <div>
-                <li>Component Item</li>
+                <li>{this.props.content}</li>
             </div>
         );
     }
