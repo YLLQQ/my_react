@@ -40,7 +40,7 @@ class Component01 extends Component {
 
     /**
      * 删除节点
-     * @param {*}} index 
+     * @param {*} index 
      */
     deleteItem(index) {
         console.log('delete index is ' + index)
