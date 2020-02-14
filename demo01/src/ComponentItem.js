@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ComponentItem extends Component {
     constructor(props) {
@@ -26,6 +27,12 @@ class ComponentItem extends Component {
 
         this.props.deleteItem(this.props.index);
     }
+}
+
+ComponentItem.propTypes = {
+    content: PropTypes.string,
+    index: PropTypes.number,
+    deleteItem: PropTypes.func
 }
 
 export default ComponentItem;
