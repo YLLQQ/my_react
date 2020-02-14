@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import { Input, Button, List } from 'antd';
 import store from './store/index';
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from './store/actionTypes';
+import { changeInputAction,addItemAction,deleteItemAction } from "./store/actionCreators";
 
 class TodoList extends Component {
 
@@ -54,13 +54,8 @@ class TodoList extends Component {
 
     changeInputValue(e) {
 
-        const action = {
-            // 相当于给action起名字
-            type: CHANGE_INPUT,
-            // 改变后的值
-            value: e.target.value
-        }
-
+        const action = changeInputAction(e.target.value)
+  
         store.dispatch(action)
     }
 
@@ -70,18 +65,13 @@ class TodoList extends Component {
     }
 
     clickButton() {
-        const action = {
-            type: ADD_ITEM,
-        }
+        const action = addItemAction()
 
         store.dispatch(action)
     }
 
     deleteItem(index) {
-        const action = {
-            type: DELETE_ITEM,
-            value: index
-        }
+        const action = deleteItemAction()
 
         store.dispatch(action)
     }

@@ -1,6 +1,5 @@
 import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from './actionTypes';
 
-
 const defaultState = {
     inputValue: '写点什么',
     list: [
