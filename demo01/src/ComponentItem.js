@@ -29,3 +29,8 @@ class ComponentItem extends Component {
 }
 
 export default ComponentItem;
+
+/**
+ * React单向数据流，不能直接对父组件传递数据对象进行直接操作。
+ * 如需操作，父组件需要把相关操作进行传递。
+ */
