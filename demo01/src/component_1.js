@@ -19,6 +19,12 @@ class Component01 extends Component {
         console.log('componentDidMount  ---  组件将要挂载完成')
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate  ---  组件需要更新')
+
+        return true;
+    }
+
     /**
      * 构造函数初始化数据
      * @param {*} props 
