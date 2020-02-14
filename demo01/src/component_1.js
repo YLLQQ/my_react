@@ -33,7 +33,7 @@ class Component01 extends Component {
                     />
                     <button onClick={this.addService.bind(this)}> Add Service </button>
                 </div>
-                <ul>
+                <ul ref={(ul) => { this.ul = ul }}>
                     {
                         this.state.list.map((item, index) => {
                             return (
@@ -76,10 +76,14 @@ class Component01 extends Component {
      * @param {*} inputValue 
      */
     addService(inputValue) {
+        /*异步方法 -- 虚拟DOM */
         this.setState({
             /** ...扩展运算符，相当于已有元素复制 */
             list: [...this.state.list, this.state.inputValue],
             inputValue: ''
+        }, () => {
+            /*因为setState属于异步操作，输出存在错误。基于setState回调函数急性展示 */
+            console.log(this.ul.querySelectorAll('li').length)
         })
     }
 
