@@ -8,7 +8,22 @@ class ComponentItem extends Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
+    /**
+     * 父组件进行渲染，子组件有条件渲染。调整性能优化
+     * @param {*} nextProps 
+     * @param {*} nextState 
+     */
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.content !== this.props.content) {
+            return true;
+        }
+
+        return false
+    }
+
     render() {
+        console.log('child-render')
+
         return (
             <div>
                 {
