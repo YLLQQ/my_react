@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import ComponentItem from './ComponentItem';
+import axios from 'axios';
 
 /**
  * 组件外层包裹原则
@@ -27,11 +28,23 @@ class Component01 extends Component {
     componentWillReceiveProps(nextProps) {
         console.log('child -- componentWillReceiveProps')
     }
-    
+
     shouldComponentUpdate(nextProps, nextState) {
         console.log('shouldComponentUpdate  ---  组件需要更新')
 
         return true;
+    }
+
+    /**
+     * 组件加载完成后，执行一次
+     */
+    componentDidMount() {
+        axios.post('https://web-api.juejin.im/v3/web/wbbr/bgeda')
+            .then((res) => {
+                console.log('axios获取数据：' + JSON.stringify(res))
+            }).catch((error) => {
+                console.log('error message is ' + error)
+            })
     }
 
     /**
