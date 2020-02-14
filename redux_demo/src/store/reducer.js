@@ -1,12 +1,8 @@
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from './actionTypes';
+import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_INIT_DATA } from './actionTypes';
 
 const defaultState = {
-    inputValue: '写点什么',
-    list: [
-        '数据一',
-        '数据二',
-        '数据三'
-    ]
+    inputValue: '',
+    list: []
 }
 
 export default (state = defaultState, action) => {
@@ -33,6 +29,15 @@ export default (state = defaultState, action) => {
         let newState = JSON.parse(JSON.stringify(state))
 
         newState.list.splice(action.index, 1)
+
+        return newState
+    }
+
+    if (action.type === GET_INIT_DATA) {
+        let newState = JSON.parse(JSON.stringify(state))
+        
+        newState.inputValue=action.data.inputValue
+        newState.list=action.data.list
 
         return newState
     }
