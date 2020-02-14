@@ -35,6 +35,10 @@ ComponentItem.propTypes = {
     deleteItem: PropTypes.func
 }
 
+ComponentItem.defaultProps = {
+    content: 'default service'
+}
+
 export default ComponentItem;
 
 /**
