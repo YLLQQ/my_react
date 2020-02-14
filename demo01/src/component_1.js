@@ -25,7 +25,12 @@ class Component01 extends Component {
             <div>
                 <div>
                     {/*增加注释 */}
-                    <input className="inputBorder" value={this.state.inputValue} onChange={this.inputChange.bind(this)/**事件绑定this */} />
+                    <input
+                        className="inputBorder"
+                        value={this.state.inputValue}
+                        onChange={this.inputChange.bind(this)/**事件绑定this */}
+                        ref={(input) => { this.input = input }}
+                    />
                     <button onClick={this.addService.bind(this)}> Add Service </button>
                 </div>
                 <ul>
@@ -82,11 +87,9 @@ class Component01 extends Component {
      * e 默认传参参数
      * @param {e} e 
      */
-    inputChange(e) {
-        console.log('input value is ' + e.target.value)
-
+    inputChange() {
         this.setState({
-            inputValue: e.target.value
+            inputValue: this.input.value
         })
     }
 }
