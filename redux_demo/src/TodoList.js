@@ -8,9 +8,11 @@ class TodoList extends Component {
     constructor(props) {
         super(props)
 
-        console.log(store.getState())
-
         this.state = store.getState()
+        this.changeInputValue = this.changeInputValue.bind(this)
+        this.storeChange=this.storeChange.bind(this)
+        // 订阅store更新
+        store.subscribe(this.storeChange)
     }
 
     render() {
@@ -20,6 +22,8 @@ class TodoList extends Component {
                     <Input
                         placeholder={this.state.inputValue}
                         style={{ width: '250px', marginRight: '10px' }}
+
+                        onChange={this.changeInputValue}
                     />
                     <Button type="primary">增加</Button>
                 </div>
@@ -32,6 +36,23 @@ class TodoList extends Component {
                 </div>
             </div>
         );
+    }
+
+    changeInputValue(e) {
+
+        const action = {
+            // 相当于给action起名字
+            type: 'changeInput',
+            // 改变后的值
+            value: e.target.value
+        }
+
+        store.dispatch(action)
+    }
+
+    storeChange(){
+        // 更新组件状态
+        this.setState(store.getState())
     }
 }
 
