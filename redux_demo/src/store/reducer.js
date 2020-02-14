@@ -9,8 +9,6 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
 
-    console.log(state, action)
-
     // Reducer只能接收state，不能改变state
     if (action.type === 'changeInput') {
         let newState = JSON.parse(JSON.stringify(state))
@@ -25,6 +23,14 @@ export default (state = defaultState, action) => {
 
         newState.list.push(newState.inputValue)
         newState.inputValue = ''
+
+        return newState
+    }
+
+    if (action.type === 'deleteItem') {
+        let newState = JSON.parse(JSON.stringify(state))
+
+        newState.list.splice(action.value, 1)
 
         return newState
     }
