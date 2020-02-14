@@ -8,6 +8,18 @@ import ComponentItem from './ComponentItem';
  */
 class Component01 extends Component {
     /**
+     * 生命周期
+     * @param {*} props 
+     */
+    componentWillMount() {
+        console.log('componentWillMount  ---  组件将要挂载到页面')
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount  ---  组件将要挂载完成')
+    }
+
+    /**
      * 构造函数初始化数据
      * @param {*} props 
      */
@@ -21,6 +33,8 @@ class Component01 extends Component {
     }
 
     render() {
+        console.log('render --- 组件挂载中')
+
         return (
             <div>
                 <div>
