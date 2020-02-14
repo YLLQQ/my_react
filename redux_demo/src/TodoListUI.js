@@ -25,7 +25,7 @@ class TodoListUI extends Component {
                         bordered
                         renderItem={(item, index) => (
                             <List.Item
-                                onClick={(index) => { this.props.deleteItem(index) }}
+                                onClick={() => { this.props.deleteItem(index) }}
                             >
                                 {item}
                             </List.Item>

@@ -2,7 +2,7 @@ import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from "./actionTypes";
 
 export const changeInputAction = (value) => ({
     type: CHANGE_INPUT,
-    value: value
+    value
 })
 
 export const addItemAction = () => ({
@@ -11,5 +11,5 @@ export const addItemAction = () => ({
 
 export const deleteItemAction = (index) => ({
     type: DELETE_ITEM,
-    value: index
+    index
 })

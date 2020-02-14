@@ -50,7 +50,7 @@ class TodoList extends Component {
     }
 
     deleteItem(index) {
-        const action = deleteItemAction()
+        const action = deleteItemAction(index)
 
         store.dispatch(action)
     }
