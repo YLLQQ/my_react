@@ -19,6 +19,15 @@ class Component01 extends Component {
         console.log('componentDidMount  ---  组件将要挂载完成')
     }
 
+    /**
+     * 组件第一次存在于dom中，函数不会被执行
+     * 组件已将存在于dom中，函数才会被执行
+     * @param {*} nextProps 
+     */
+    componentWillReceiveProps(nextProps) {
+        console.log('child -- componentWillReceiveProps')
+    }
+    
     shouldComponentUpdate(nextProps, nextState) {
         console.log('shouldComponentUpdate  ---  组件需要更新')
 
