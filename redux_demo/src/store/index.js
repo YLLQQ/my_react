@@ -1,5 +1,17 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import reducer from './reducer'
+import reduxThunk from "redux-thunk";
+
+/**
+ * 增强函数，使用reduxThunk的场景下，redux-dev-tools仍然生效
+ */
+const composeEnhancers = () => {
+    return window.__REDUX_DEVTOOLS_EXTENSION__
+        ? window.__REDUX_DEVTOOLS_EXTENSION__({})
+        : compose
+}
+
+const enhancer = composeEnhancers(applyMiddleware(reduxThunk))
 
 /**
  * store必须唯一，多个store不允许，只能有一个store空间
@@ -11,8 +23,7 @@ import reducer from './reducer'
  */
 const store = createStore(
     reducer,
-    /* 如果windows有__REDUX_DEVTOOLS_EXTENSION__，则调用 */
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    enhancer
 )
 
 export default store;
