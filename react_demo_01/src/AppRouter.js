@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Index from './pages/Index'
 import './index.css'
+import Video from './pages/Video'
+import Workplace from './pages/Workplace'
 
 const AppRouter = () => {
     return (
@@ -15,10 +17,10 @@ const AppRouter = () => {
                             <Link to="/">博客首页</Link>
                         </li>
                         <li>
-                            <Link to="">视频教程</Link>
+                            <Link to="/video/">视频教程</Link>
                         </li>
                         <li>
-                            <Link to="">职场技能</Link>
+                            <Link to="/workplace/">职场技能</Link>
                         </li>
                     </ul>
                 </div>
@@ -28,6 +30,14 @@ const AppRouter = () => {
                         path="/"
                         exact
                         component={Index}
+                    />
+                    <Route
+                        path="/video/"
+                        component={Video}
+                    />
+                    <Route
+                        path="/workplace/"
+                        component={Workplace}
                     />
                 </div>
             </div>
