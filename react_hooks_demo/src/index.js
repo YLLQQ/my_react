@@ -6,6 +6,7 @@ import Example3 from './Example3';
 import Example4 from './Example4';
 import Example5 from './Example5';
 import Example6 from './example6/Example6';
+import Example9 from './Example9';
 
 
-ReactDOM.render(<Example6 />, document.getElementById('root'));
+ReactDOM.render(<Example9 />, document.getElementById('root'));
