@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const list = [
     { bid: 1, title: 'Book 1' },
@@ -7,10 +7,12 @@ const list = [
     { bid: 3, title: 'Book 3' },
 ]
 
-
-const Index = () => {
+const Index = (props) => {
     return (
         <div>
+            {/* 组件式重定向 */}
+            <Redirect to="/home/" />
+
             <h2>JS-Index</h2>
 
             <ul>
