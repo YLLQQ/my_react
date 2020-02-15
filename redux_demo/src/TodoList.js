@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
 import store from './store/index';
-import { changeInputAction, addItemAction, deleteItemAction, getInitDataAction } from "./store/actionCreators";
+import { changeInputAction, addItemAction, deleteItemAction, getDataFromRemote } from "./store/actionCreators";
 import TodoListUI from "./TodoListUI";
-import axios from "axios";
 
 class TodoList extends Component {
 
@@ -33,13 +32,9 @@ class TodoList extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://www.fastmock.site/mock/fa45cc84e05124ffb292d82a1b9b965f/redux/api/data')
-            .then(res => {
-                const data = res.data
-                const action = getInitDataAction(data)
+        const action = getDataFromRemote()
 
-                store.dispatch(action)
-            })
+        store.dispatch(action)
     }
 
     changeInputValue(e) {
