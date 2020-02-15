@@ -16,3 +16,8 @@ function Example2() {
 }
 
 export default Example2
+
+/**
+ * 使用useEffect()代替生命周期函数
+ *
+ */
